@@ -161,7 +161,7 @@ FarolEditor::FarolEditor(FarolProcessor& p) : juce::AudioProcessorEditor(&p), pr
     setSize(1120, 830);
     proc.addChangeListener(this);
     // reage ao idioma
-    langBox.onChange = [this] { juce::MessageManager::callAsync([safe = juce::Component::SafePointer<FarolEditor>(this)] { if (safe) safe->refresh(); }); };
+    langBox.onChange = [this] { refresh(); };
     sampleKeyBox.onChange = [this] { refresh(); };
     sampleModeBox.onChange = [this] { refresh(); };
     sampleBpmSlider.onValueChange = [this] { refresh(); };
